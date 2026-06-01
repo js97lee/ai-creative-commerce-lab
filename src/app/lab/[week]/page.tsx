@@ -22,12 +22,12 @@ export default function WeekPage({ params }: Props) {
   if (!meta) notFound();
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-white text-neutral-900">
       <LabHeader />
       <main className="mx-auto max-w-6xl px-4 py-16">
         <p className="text-xs tracking-[0.2em] text-neutral-500">WEEK {meta.weekNumber}</p>
-        <h1 className="mt-3 text-3xl font-semibold">{meta.title}</h1>
-        <p className="mt-2 text-neutral-400">{meta.subtitle}</p>
+        <h1 className="mt-3 text-3xl font-semibold text-neutral-900">{meta.title}</h1>
+        <p className="mt-2 text-neutral-600">{meta.subtitle}</p>
         <p className="mt-6 max-w-3xl text-sm leading-relaxed text-neutral-500">{meta.summary}</p>
 
         {meta.weekNumber === 1 && (
@@ -36,9 +36,9 @@ export default function WeekPage({ params }: Props) {
               <h2 className="text-xs tracking-[0.2em] text-neutral-500">제작 카테고리</h2>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {CATEGORIES.map((c) => (
-                  <div key={c.id} className="rounded-lg border border-neutral-800 p-5">
+                  <div key={c.id} className="rounded-lg border border-neutral-200 bg-white p-5">
                     <p className="text-xs text-neutral-500">{c.subtitle}</p>
-                    <h3 className="mt-2 font-medium">{c.title}</h3>
+                    <h3 className="mt-2 font-medium text-neutral-900">{c.title}</h3>
                     <p className="mt-2 text-sm text-neutral-500">{c.description}</p>
                     <ul className="mt-4 space-y-1 text-xs text-neutral-600">
                       {c.outputs.map((o) => (
@@ -56,7 +56,7 @@ export default function WeekPage({ params }: Props) {
         )}
 
         {meta.weekNumber !== 1 && meta.status === "upcoming" && (
-          <p className="mt-16 rounded-lg border border-neutral-800 bg-neutral-950 p-8 text-center text-neutral-500">
+          <p className="mt-16 rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center text-neutral-500">
             이 주차의 아카이브는 준비 중입니다.
           </p>
         )}
@@ -70,7 +70,7 @@ export default function WeekPage({ params }: Props) {
 
         <section className="mt-16">
           <h2 className="text-xs tracking-[0.2em] text-neutral-500">주차 산출물</h2>
-          <ul className="mt-4 space-y-2 text-sm text-neutral-400">
+          <ul className="mt-4 space-y-2 text-sm text-neutral-600">
             {meta.outputs.map((o) => (
               <li key={o}>— {o}</li>
             ))}

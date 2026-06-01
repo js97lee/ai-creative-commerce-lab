@@ -71,14 +71,14 @@ export default function Week1Content() {
   return (
     <div className="space-y-10">
       {blocks.map((b) => (
-        <section key={b.title} className="rounded-lg border border-neutral-800 bg-neutral-950 p-6">
-          <h2 className="text-lg font-semibold text-white">{b.title}</h2>
-          {b.body && <p className="mt-3 text-sm leading-relaxed text-neutral-400">{b.body}</p>}
+        <section key={b.title} className="rounded-lg border border-neutral-200 bg-neutral-50 p-6">
+          <h2 className="text-lg font-semibold text-neutral-900">{b.title}</h2>
+          {b.body && <p className="mt-3 text-sm leading-relaxed text-neutral-600">{b.body}</p>}
           {b.items && (
-            <ul className="mt-3 space-y-2 text-sm text-neutral-400">
+            <ul className="mt-3 space-y-2 text-sm text-neutral-600">
               {b.items.map((item) => (
                 <li key={item} className="flex gap-2">
-                  <span className="text-neutral-600">—</span>
+                  <span className="text-neutral-400">—</span>
                   <span>{item}</span>
                 </li>
               ))}

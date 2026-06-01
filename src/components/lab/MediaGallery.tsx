@@ -42,8 +42,8 @@ function MediaCard({ slot }: { slot: MediaSlot }) {
   const ratio = ratioClass[slot.aspectRatio ?? "9/16"] ?? "aspect-[9/16]";
 
   return (
-    <article className="overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950">
-      <div className={`relative ${ratio} w-full overflow-hidden bg-neutral-900`}>
+    <article className="overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm">
+      <div className={`relative ${ratio} w-full overflow-hidden bg-neutral-100`}>
         {slot.src ? (
           slot.type === "video" ? (
             <video src={slot.src} className="h-full w-full object-cover" controls muted playsInline />
@@ -51,14 +51,14 @@ function MediaCard({ slot }: { slot: MediaSlot }) {
             <img src={slot.src} alt={slot.title} className="h-full w-full object-cover" />
           )
         ) : (
-          <div className="flex h-full flex-col items-center justify-center gap-2 p-4 text-center text-neutral-500">
+          <div className="flex h-full flex-col items-center justify-center gap-2 p-4 text-center text-neutral-400">
             <span className="text-xs uppercase tracking-widest">{slot.type}</span>
-            <span className="text-sm text-neutral-400">Coming soon</span>
+            <span className="text-sm text-neutral-500">Coming soon</span>
           </div>
         )}
       </div>
       <div className="p-3">
-        <p className="text-sm font-medium text-white">{slot.title}</p>
+        <p className="text-sm font-medium text-neutral-900">{slot.title}</p>
         {slot.caption && <p className="mt-1 text-xs text-neutral-500">{slot.caption}</p>}
       </div>
     </article>
