@@ -1,113 +1,74 @@
-import Image from "next/image";
+import Link from "next/link";
+import LabHeader from "@/components/lab/LabHeader";
+import LabFooter from "@/components/lab/LabFooter";
+import { LAB_NAME, LAB_SUBTITLE, CATEGORIES, WEEK_PLAN } from "@/lib/labData";
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div className="min-h-screen bg-black text-white">
+      <LabHeader />
+      <main>
+        <section className="border-b border-neutral-800">
+          <div className="mx-auto max-w-6xl px-4 py-24 sm:py-32">
+            <p className="text-xs tracking-[0.3em] text-neutral-500">HAILUO AI · CREATIVE COMMERCE</p>
+            <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-tight sm:text-6xl">{LAB_NAME}</h1>
+            <p className="mt-6 max-w-2xl text-lg text-neutral-400">{LAB_SUBTITLE}</p>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-neutral-500">
+              AI 기반 콘텐츠·브랜드·IP를 실험하는 5주 제작 LAB 아카이브입니다. 뮤직비디오,드, 펫, 향수/코스메틱
+              바이럴 콘텐츠를 제작하고 상영·공유합니다.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                href="/lab/week-1"
+                className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:bg-neutral-200"
+              >
+                1주차 아카이브 보기
+              </Link>
+              <Link
+                href="/lab"
+                className="rounded-full border border-neutral-600 px-6 py-3 text-sm text-white hover:border-white"
+              >
+                전체 아카이브
+              </Link>
+            </div>
+          </div>
+        </section>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <section className="border-b border-neutral-800 py-20">
+          <div className="mx-auto max-w-6xl px-4">
+            <h2 className="text-xs tracking-[0.2em] text-neutral-500">4 CATEGORIES</h2>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {CATEGORIES.map((c) => (
+                <div key={c.id} className="rounded-lg border border-neutral-800 p-5">
+                  <p className="text-xs text-neutral-500">{c.subtitle}</p>
+                  <h3 className="mt-2 font-medium">{c.title}</h3>
+                  <p className="mt-2 text-sm text-neutral-500 line-clamp-3">{c.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <section className="py-20">
+          <div className="mx-auto max-w-6xl px-4">
+            <h2 className="text-xs tracking-[0.2em] text-neutral-500">5 WEEKS</h2>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {WEEK_PLAN.map((w) => (
+                <Link
+                  key={w.slug}
+                  href={`/lab/${w.slug}`}
+                  className="rounded-lg border border-neutral-800 p-4 hover:border-white"
+                >
+                  <p className="text-xs text-neutral-500">WEEK {w.week}</p>
+                  <p className="mt-2 text-sm font-medium">{w.title}</p>
+                  <p className="mt-2 text-xs text-neutral-600">{w.status === "published" ? "Open" : "Soon"}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <LabFooter />
+    </div>
   );
 }
